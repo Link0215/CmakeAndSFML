@@ -1,0 +1,327 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C26812",
+          "message": {
+            "text": "El tipo de enumeración \"sf::Socket::Status\" no tiene ámbito. Prefiera \"enum class\" a \"enum\" (Enum.3)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/berna/Documents/Bernardo/Programación/CmakeAndSFML/CmakeAndSFML/UDP.cpp"
+                },
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 17
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?runUdpServer@@YAXG@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.29.30145.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "commandLine": "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\c1xx.dll\" -ACf{1F7B090C-16DB-4822-966A-A93D26ED4681} -ACpmspft140.dll -Alint -D_PREFAST_ -D_AST_FE_ -Analyze -zm0x00007FF782B3FC60 -il C:\\Users\\berna\\AppData\\Local\\Temp\\_CL_64c19462ast -typedil -f UDP.cpp -Ze -D_MSC_EXTENSIONS -Zp16 -pc \\:/ -D_MSC_VER=1929 -D_MSC_FULL_VER=192930145 -D_MSC_BUILD=0 -D_M_AMD64=100 -ZILP448 -D_M_X64=100 -D_WIN64 -D_WIN32 -GR -D_CPPRTTI -I C:\\Users\\berna\\Documents\\GitHub\\SFML\\include -nologo -W 4 -WX -diagnostics:column -GF -Og -Oi -Ot -Oy -DCODE_ANALYSIS -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -EHs -D_CPPUNWIND -EHc -MD -D_MT -D_DLL -GS -D_M_FP_PRECISE -permissive- -Zc:wchar_t -Zc:forScope -std:c++17 -Fox64\\Debug\\UDP.obj -Fdx64\\Debug\\vc142.pdb -external:W 4 -Gd -analyze:projectdirectory C:\\Users\\berna\\Documents\\Bernardo\\Programación\\CmakeAndSFML\\CmakeAndSFML -analyze:rulesetdirectory ;C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Team Tools\\Static Analysis Tools\\\\Rule Sets; -analyze:ruleset C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Team Tools\\Static Analysis Tools\\Rule Sets\\NativeRecommendedRules.ruleset -analyze:quiet -analyze:plugin C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\EspXEngine.dll -FC -errorreport:prompt -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\ucrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\cppwinrt -I C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.8\\Include\\um -external:I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\include -external:I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\atlmfc\\include -external:I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Auxiliary\\VS\\include -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\ucrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\ucrt -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\um -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\shared -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\winrt -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\cppwinrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\cppwinrt -external:I C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.8\\Include\\um -I C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.8\\Include\\um",
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///C:/Users/berna/Documents/Bernardo/Programación/CmakeAndSFML/CmakeAndSFML/UDP.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "8c6bbd6a81251b32b6086d0ea4a11648"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/network.hpp"
+          },
+          "hashes": {
+            "md5": "2ca5089d1482b351e3cd9eaed38be8f5"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/network/ftp.hpp"
+          },
+          "hashes": {
+            "md5": "c62928ab6bb5bc22b5719e680b7dfe7f"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/network/export.hpp"
+          },
+          "hashes": {
+            "md5": "ed5a3ebc8f4bd9f8cea6972ba7d473b5"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/config.hpp"
+          },
+          "hashes": {
+            "md5": "712b78068a6d85e57c19f03b2d785408"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/network/tcpsocket.hpp"
+          },
+          "hashes": {
+            "md5": "aa003d84d27b6483fe8ed5011585bae3"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/network/socket.hpp"
+          },
+          "hashes": {
+            "md5": "7da5b14be550759b8098a8f0623acce7"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/network/sockethandle.hpp"
+          },
+          "hashes": {
+            "md5": "a16c78b28c14f1518b80e9aabbe75cfa"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/system/time.hpp"
+          },
+          "hashes": {
+            "md5": "115009cf544edd7dc2234ef5eb6bfe5d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/system/export.hpp"
+          },
+          "hashes": {
+            "md5": "ced568d10dff4360e878ebe8470584b1"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/system/time.inl"
+          },
+          "hashes": {
+            "md5": "9e226e21f0dd43dac2756d5fa993ad7e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/network/http.hpp"
+          },
+          "hashes": {
+            "md5": "034ee50fd40bb2c88a19dc18e096e547"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/network/ipaddress.hpp"
+          },
+          "hashes": {
+            "md5": "6d52810d7af382895d220e48ca0e1c77"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/network/packet.hpp"
+          },
+          "hashes": {
+            "md5": "1206f5ec0a0151cbac738b8fda20ed92"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/network/socketselector.hpp"
+          },
+          "hashes": {
+            "md5": "9926a280fea3d2a5b15e2839fb441816"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/network/tcplistener.hpp"
+          },
+          "hashes": {
+            "md5": "1e79861de3fe34b69bd99f20c66dd281"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/network/udpsocket.hpp"
+          },
+          "hashes": {
+            "md5": "50232f887ef64fc5ad5b8cab377d5aa6"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/system.hpp"
+          },
+          "hashes": {
+            "md5": "bb2b2d850ba241d0abb34219f59fd7a8"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/system/angle.hpp"
+          },
+          "hashes": {
+            "md5": "280c7db28981892a43473ebdedb0f672"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/system/angle.inl"
+          },
+          "hashes": {
+            "md5": "f609f61ce73526e0d831b6c335de828b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/system/clock.hpp"
+          },
+          "hashes": {
+            "md5": "31e1d7724cbb55073860b77e1b71bb4b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/system/err.hpp"
+          },
+          "hashes": {
+            "md5": "ea81a7ae68cfc94abe5e7601a76f4742"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/system/fileinputstream.hpp"
+          },
+          "hashes": {
+            "md5": "774245c0823d8d0a5e78d9fe02e81593"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/system/inputstream.hpp"
+          },
+          "hashes": {
+            "md5": "9b27bdc06ccd1279999d79fa03c00689"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/system/memoryinputstream.hpp"
+          },
+          "hashes": {
+            "md5": "f0c5270c8464c5f85d6586347f5d8252"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/system/sleep.hpp"
+          },
+          "hashes": {
+            "md5": "99e590ea9a212b99c566505d4a0546a6"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/system/string.hpp"
+          },
+          "hashes": {
+            "md5": "8df9ee4f721548247d7d5c815f74b3aa"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/system/utf.hpp"
+          },
+          "hashes": {
+            "md5": "11cdf0bc595bedc7d69db4b3241e8da5"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/system/utf.inl"
+          },
+          "hashes": {
+            "md5": "750c41b7c72b94377d9a325fa73609f5"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/system/string.inl"
+          },
+          "hashes": {
+            "md5": "dadfa877dbdb193f74ae80b8db9766d5"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/system/vector2.hpp"
+          },
+          "hashes": {
+            "md5": "88b1f8a8bac4b373c4cb5c3398b06ad7"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/system/vector2.inl"
+          },
+          "hashes": {
+            "md5": "b35c9d8c9edf9500637c0e05ea7aeee8"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/system/vector3.hpp"
+          },
+          "hashes": {
+            "md5": "9aa2a80a21205949672e3db2376b851b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/berna/documents/github/sfml/include/sfml/system/vector3.inl"
+          },
+          "hashes": {
+            "md5": "cfd84ced6836fe4f2322654223cf41b1"
+          }
+        }
+      ]
+    }
+  ]
+}

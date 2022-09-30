@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?><DEFECTS><DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\berna\Documents\Bernardo\Programación\CmakeAndSFML\CmakeAndSFML\</FILEPATH>
+      <FILENAME>UDP.cpp</FILENAME>
+      <LINE>22</LINE>
+      <COLUMN>16</COLUMN>
+    </SFA>
+    <DEFECTCODE>26812</DEFECTCODE>
+    <DESCRIPTION>El tipo de enumeración "sf::Socket::Status" no tiene ámbito. Prefiera "enum class" a "enum" (Enum.3).</DESCRIPTION>
+    <FUNCTION>runUdpServer</FUNCTION>
+    <DECORATED>?runUdpServer@@YAXG@Z</DECORATED>
+    <FUNCLINE>16</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT></DEFECTS>
