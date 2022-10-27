@@ -111,15 +111,28 @@ void sendMessage(const string &message)
 						g_clientlist[0].m_port);
 }
 
-//void ping()
-//{
-//	system("cls");
-//	cout << "Host: ";
-//	host = "192.168.1.71";
-//	system(("ping " + host).c_str());
-//	cout << endl;
-//	return;
-//}
+void ping()
+{
+	list <double> pingPackets;
+	double ping;
+	int packetN = 1;
+	string packet = " ";
+	unsigned t0, t1;
+	for (int i = 0; i < 3; i++)
+	{
+		t0 = clock();
+		sendMessage(packet);
+		waitForMessage();
+		t1 = clock();
+		ping = (double(t1 - t0) / CLOCKS_PER_SEC) * 1000;
+		pingPackets.push_back(ping);
+	}
+	for (auto pos = pingPackets.begin(); pos != pingPackets.end(); pos++)
+	{
+		cout << "Paquete: " << packetN << " ip: " << g_clientlist[0].m_ip.value() << " ping: " << *pos << endl;
+		packetN++;
+	}
+}
 
 int main()
 {
@@ -135,6 +148,7 @@ int main()
 		messageToUsers.clear();
 		messageToUsers << "Mensaje al cliente num: " << numMessagesReceived;
 		sendMessage(messageToUsers.str());
+		ping();
 	}
 	return 0;
 }
