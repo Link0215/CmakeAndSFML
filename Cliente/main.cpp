@@ -83,6 +83,19 @@ void sendMessage(const string& message)
 							APP_PORT);
 }
 
+void ping()
+{
+	list <double> pingPackets;
+	double ping;
+	int packetN = 1;
+	string packet = "PING";
+	unsigned t0, t1;
+	for (int i = 1; i < 4; i++)
+	{
+		sendMessage(packet);
+	}
+}
+
 int main()
 {
 	uint32 numMessagesReceived = 0;
@@ -93,8 +106,15 @@ int main()
 	{
 		++numMessagesReceived;
 		std::getline(cin, messageToUsers);
-		sendMessage(messageToUsers);
-		waitForMessage();
+		if (messageToUsers == "ping" || messageToUsers == "PING" || messageToUsers == "Ping")
+		{
+			ping();
+		}
+		else 
+		{
+			sendMessage(messageToUsers);
+			waitForMessage();
+		}
 	}
 	return 0;
 }

@@ -35,7 +35,7 @@ static string host;
 
 UdpSocket g_serverSocket;
 
-//void ping();
+void ping();
 
 class NertworkClient
 {
@@ -80,23 +80,29 @@ void waitForMessage()
 	rsize_t receiveMessageSize;
 
 	Socket::Status retValue =
-	g_serverSocket.receive(&inBufferData[0],
-							inBufferData.size(),
-							receiveMessageSize,
-							sender,
-							senderPort);
+		g_serverSocket.receive(&inBufferData[0],
+			inBufferData.size(),
+			receiveMessageSize,
+			sender,
+			senderPort);
 	client.m_ip = sender;
 	client.m_port = senderPort;
 	g_clientlist.push_back(client);
-	if (retValue != Socket::Done)
-	{//Error
-		return;
+	if (inBufferData.data() == "PING")
+	{
+		ping(inBufferData.data());
 	}
-	cout << "Mensaje recibido del cliente: "
-		<< client.m_ip.value() << ": "
-		<< quoted(inBufferData.data()) << endl;
-	/*ping();*/
-	cout << endl;
+	else
+	{
+		if (retValue != Socket::Done)
+		{//Error
+			return;
+		}
+		cout << "Mensaje recibido del cliente: "
+			<< client.m_ip.value() << ": "
+			<< quoted(inBufferData.data()) << endl;
+		cout << endl;
+	}
 }
 
 void sendMessage(const string &message)
@@ -110,26 +116,19 @@ void sendMessage(const string &message)
 						g_clientlist[0].m_ip.value(),
 						g_clientlist[0].m_port);
 }
-
-void ping()
+void ping(string packet)
 {
-	list <double> pingPackets;
 	double ping;
 	int packetN = 1;
-	string packet = " ";
 	unsigned t0, t1;
 	for (int i = 0; i < 3; i++)
 	{
+		packet += " " + i;
 		t0 = clock();
 		sendMessage(packet);
-		waitForMessage();
 		t1 = clock();
 		ping = (double(t1 - t0) / CLOCKS_PER_SEC) * 1000;
-		pingPackets.push_back(ping);
-	}
-	for (auto pos = pingPackets.begin(); pos != pingPackets.end(); pos++)
-	{
-		cout << "Paquete: " << packetN << " ip: " << g_clientlist[0].m_ip.value() << " ping: " << *pos << endl;
+		cout << "Paquete: " << packetN << " ping: " << ping << endl;
 		packetN++;
 	}
 }
@@ -148,7 +147,6 @@ int main()
 		messageToUsers.clear();
 		messageToUsers << "Mensaje al cliente num: " << numMessagesReceived;
 		sendMessage(messageToUsers.str());
-		ping();
 	}
 	return 0;
 }
