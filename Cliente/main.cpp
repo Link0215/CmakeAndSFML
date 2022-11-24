@@ -1,4 +1,6 @@
 #include <SFML/Network.hpp>
+#include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
 
 #include <iostream>
 #include <vector>
@@ -33,6 +35,39 @@ const uint32 MESSAGE_BUFFER_SIZE = 128;
 UdpSocket g_clientSocket;
 std::optional<sf::IpAddress> g_serverIP;
 std::optional<sf::IpAddress> g_clientIP;
+
+struct MESSAGE
+{
+	string contentMessage;
+	sf::Color color;
+	int thickness;
+};
+
+struct LINE
+{
+	sf::Vector2i pos_ini;
+	sf::Vector2i pos_end;
+	sf::Color color;
+	int thickness;
+};
+struct SQUARE
+{
+	sf::Vector2i pos_ini;
+	sf::Vector2i pos_end;
+	sf::Color color;
+};
+struct CIRCLE
+{
+	sf::Vector2i pos_ini;
+	float radius;
+	sf::Color color;
+};
+struct TRIANGLE
+{
+	sf::Vector2i pos_ini;
+	float base;
+	sf::Color color;
+};
 
 void runUdpClient(uint16 port)
 {
@@ -89,10 +124,28 @@ void ping()
 	double ping;
 	int packetN = 1;
 	string packet = "PING";
-	unsigned t0, t1;
 	for (int i = 1; i < 4; i++)
 	{
 		sendMessage(packet);
+	}
+}
+
+void CreateWindows()
+{
+	sf::Window window(sf::VideoMode({ 640, 480 }), "Chat");
+
+	while (window.isOpen())
+	{
+		sf::Event event;
+
+		while (window.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+			{
+				window.close();
+			}
+		}
+		window.display();
 	}
 }
 
@@ -102,7 +155,11 @@ int main()
 	std::string messageToUsers;
 	runUdpClient(APP_PORT);
 
-	while (true)
+	struct LINE linea;
+
+	CreateWindows();
+
+	/*while (true)
 	{
 		++numMessagesReceived;
 		std::getline(cin, messageToUsers);
@@ -116,5 +173,5 @@ int main()
 			waitForMessage();
 		}
 	}
-	return 0;
+	return 0;*/
 }
