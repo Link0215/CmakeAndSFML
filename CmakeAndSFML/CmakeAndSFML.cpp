@@ -37,28 +37,36 @@ UdpSocket g_serverSocket;
 
 void ping();
 
-class NertworkClient
+class NetworkClient
 {
 public:
-	NertworkClient() = default;
-	~NertworkClient() = default;
-
-	bool operator==(const NertworkClient& other)
+	NetworkClient() = default;
+	~NetworkClient() = default;
+	// verify if user is valid
+	bool operator==(const NetworkClient& other)
 	{
-		return (m_ip.value().toInteger() == other.m_ip.value().toInteger()
-			&& m_port == other.m_port);
+		return (m_ip.value().toInteger() == other.m_ip.value().toInteger() && m_port == other.m_port);
 	}
-	bool operator!=(const NertworkClient& other)
+	bool operator!=(const NetworkClient& other)
 	{
 		return !this->operator==(other);
 	}
-
 public:
 	optional<IpAddress> m_ip;
 	uint16 m_port;
 };
+class MessageManagement
+{
+public:
+	MessageManagement() = default;
+	~MessageManagement() = default;
+public:
+	vector<char> m_message;
+	NetworkClient m_ClientSource;
+};
 
-vector <NertworkClient> g_clientlist;
+vector<NetworkClient> g_clientList;
+vector<MessageManagement> g_messageList;
 
 void runUdpServer(uint16 port)
 {
@@ -72,7 +80,7 @@ void runUdpServer(uint16 port)
 
 void waitForMessage()
 {
-	NertworkClient client;
+	NetworkClient client;
 	vector<char> inBufferData;
 	std::optional<sf::IpAddress> sender;
 	uint16 senderPort;
@@ -87,7 +95,7 @@ void waitForMessage()
 			senderPort);
 	client.m_ip = sender;
 	client.m_port = senderPort;
-	g_clientlist.push_back(client);
+	g_clientList.push_back(client);
 	if (inBufferData.data() == "PING")
 	{
 		ping(inBufferData.data());
@@ -107,14 +115,14 @@ void waitForMessage()
 
 void sendMessage(const string &message)
 {
-	NertworkClient client;
+	NetworkClient client;
 	int lenght = message.length();
 	int size =
 
 	g_serverSocket.send(message.data(),
 						message.length() + 1,
-						g_clientlist[0].m_ip.value(),
-						g_clientlist[0].m_port);
+						g_clientList[0].m_ip.value(),
+						g_clientList[0].m_port);
 }
 void ping(string packet)
 {
@@ -146,6 +154,7 @@ int main()
 		messageToUsers.str("");
 		messageToUsers.clear();
 		messageToUsers << "Mensaje al cliente num: " << numMessagesReceived;
+		cout << "Mensaje enviado al cliente" << endl;
 		sendMessage(messageToUsers.str());
 	}
 	return 0;
